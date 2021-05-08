@@ -35,4 +35,9 @@ public class UserCrudController {
         userCrudController.deleteUSerById(id);
     }
 
+
+    @GetMapping("/allusers")
+    public List<Users> getUsers() {
+        return userCrudController.listAllUser();
+    }
 }

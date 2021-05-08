@@ -5,6 +5,8 @@ import com.sportyfinalproject.service.ProductCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ProductCrudController {
 
@@ -31,5 +33,12 @@ public class ProductCrudController {
 
         productCrudService.deleteProductById(id);
 
+    }
+    /* all products search
+       Get All the products
+     */
+    @GetMapping("/allproducts")
+    public List<Products> getAllProduct() {
+       return productCrudService.listAllProduct();
     }
 }
