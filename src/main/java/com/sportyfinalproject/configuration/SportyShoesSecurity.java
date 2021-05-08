@@ -1,6 +1,5 @@
 package com.sportyfinalproject.configuration;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,16 +13,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+
+
 public class SportyShoesSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.headers().frameOptions().disable();
         httpSecurity.csrf().disable()
                 .authorizeRequests().anyRequest().authenticated()
                 .and().httpBasic();
-
     }
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authentication)
             throws Exception
@@ -33,7 +33,6 @@ public class SportyShoesSecurity extends WebSecurityConfigurerAdapter {
                 .password(passwordEncoder().encode("mals"))
                 .authorities("ROLE_USER");
     }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

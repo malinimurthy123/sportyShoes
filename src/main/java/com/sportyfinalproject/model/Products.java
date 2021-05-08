@@ -11,16 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
+@Table
 public class Products {
 
     @Id
     @GeneratedValue
-    private int id;
+
+    private int productid;
     private String name;
     private int price;
     private String category;
