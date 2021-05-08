@@ -7,6 +7,8 @@ import com.sportyfinalproject.service.PurchaseItemCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class PurchaseItemServiceImpl implements PurchaseItemCrudService {
@@ -16,5 +18,9 @@ public class PurchaseItemServiceImpl implements PurchaseItemCrudService {
     @Override
     public PurchaseItem buyProduct(PurchaseItem purchaseItem) {
         return purchaseItemRepository.save(purchaseItem);
+    }
+
+    public List<PurchaseItem> listAllPurchase() {
+        return purchaseItemRepository.findAll();
     }
 }

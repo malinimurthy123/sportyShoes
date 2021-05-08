@@ -7,6 +7,8 @@ import com.sportyfinalproject.service.ProductCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ProductCrudServiceImpl implements ProductCrudService {
@@ -32,5 +34,10 @@ public class ProductCrudServiceImpl implements ProductCrudService {
     @Override
     public void deleteProductById(int id) {
         ProductRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Products> listAllProduct() {
+        return ProductRepo.findAll();
     }
 }

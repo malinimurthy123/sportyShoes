@@ -5,8 +5,13 @@ import com.sportyfinalproject.repository.UsersRepository;
 import com.sportyfinalproject.service.UserCrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
+@Transactional
 public class UserCrudServiceImpl implements UserCrudService {
 
 
@@ -25,11 +30,21 @@ public class UserCrudServiceImpl implements UserCrudService {
 
     @Override
     public Users getUser(int id) {
-        return UserRepo.findById(id).get();
+        if (UserRepo.findById(id).isPresent()) {
+            return UserRepo.findById(id).get();
+        }
+        throw new NoSuchElementException();
     }
 
     @Override
     public void deleteUSerById(int id) {
         UserRepo.deleteById(id);
     }
+
+    @Override
+    public List<Users> listAllUser() {
+
+         return UserRepo.findAll();
+    }
 }
+
