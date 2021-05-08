@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 
 @Service
@@ -28,7 +29,10 @@ public class ProductCrudServiceImpl implements ProductCrudService {
 
     @Override
     public Products getProduct(int id) {
-        return ProductRepo.findById(id).get();
+        if (ProductRepo.findById(id).isPresent()) {
+            return ProductRepo.findById(id).get();
+        }
+        throw new NoSuchElementException();
     }
 
     @Override
