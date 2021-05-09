@@ -5,10 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -17,6 +15,9 @@ import javax.persistence.Table;
 @ToString
 @NoArgsConstructor
 public class Users {
+
+    @OneToMany
+    private List<CartItem> cartItemList;
 
     @Id
     @GeneratedValue
