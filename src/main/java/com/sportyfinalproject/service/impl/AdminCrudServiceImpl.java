@@ -19,5 +19,10 @@ public class AdminCrudServiceImpl implements AdminCrudService {
         return adminRepository.findById(id).get();
     }
 
+    @Override
+    public Admin UpdatedAdminByPasswordId(Admin admin) {
+        return adminRepository.save(admin);
+    }
+
 
 }

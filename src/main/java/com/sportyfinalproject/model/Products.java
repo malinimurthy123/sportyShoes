@@ -18,12 +18,14 @@ public class Products {
 
     @OneToMany
     private List<PurchaseItem>purchaseItemList1;
+    @OneToMany
+    private List<Category> categories;
 
     @Id
     @GeneratedValue
-
     private int productid;
-    private String name;
+
+    private String productName;
     private int price;
     private String category;
     private String brand;

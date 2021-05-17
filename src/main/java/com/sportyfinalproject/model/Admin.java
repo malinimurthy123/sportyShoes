@@ -22,4 +22,5 @@ public class Admin {
     @GeneratedValue
     private int adminId;
     private String adminName;
+    private String adminPassword;
 }

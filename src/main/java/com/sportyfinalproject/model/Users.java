@@ -21,7 +21,7 @@ public class Users {
 
     @Id
     @GeneratedValue
-    private int id;
+    private int userid;
     private String name;
     private String password1;
     private int age;

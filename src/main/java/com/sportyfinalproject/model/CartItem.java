@@ -21,7 +21,6 @@ public class CartItem {
 
     @Id
     @GeneratedValue
-
     private int productId;
     private String name;
     private int rate;

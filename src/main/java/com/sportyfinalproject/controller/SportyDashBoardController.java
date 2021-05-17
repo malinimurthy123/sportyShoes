@@ -26,7 +26,7 @@ public class SportyDashBoardController {
     @GetMapping("/dashboard")
     public String dashboard(){
 
-        return "Welcome to Sporty DashBoard";
+        return "Welcome to Sporty Shoes DashBoard";
     }
 
 

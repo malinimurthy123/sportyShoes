@@ -8,26 +8,21 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
-@Table
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
-public class PurchaseItem {
+@Table
+public class Category {
 
     @OneToMany
-    private  List<Products> products;
+    private List<Products> products;
 
     @Id
     @GeneratedValue
-    private int purchaseId;
+    private int categoryId;
 
-    private int productId;
-
-    private int userID;
-    private int rate;
-    private int quantity;
-    private int price;
+    private String CategoryName;
 }
-
